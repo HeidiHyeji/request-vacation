@@ -1,0 +1,52 @@
+{{>layout/header}}
+
+<h1>휴가신청</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            {{#userVacation}}
+                <input type="hidden" id="uid" value={{uid}}>
+                잔여 연차: <span id="remainDays">{{remainDays}}</span>
+            {{/userVacation}}
+            <div class="form-group">
+                <label for="type"> 휴가구분 </label>
+                <select class="form-control" id="type">
+                    <option value="1" selected>연차</option>
+                    <option value="0.5">반차</option>
+                    <option value="0.25">반반차</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="startDate"> 시작일 </label>
+                <div class="input-group date" id="startDate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#startDate">
+                    <div class="input-group-append" data-target="#startDate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="endDateGroup">
+                <label for="endDate"> 종료일 </label>
+                <div class="input-group date" id="endDate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#endDate">
+                    <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="useDay"> 사용일수 </label>
+                <input type="text" class="form-control" id="useDay" value="1" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="comment"> 비고 </label>
+                <textarea class="form-control" id="comment" placeholder="내용을 입력하세요"></textarea>
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+    </div>
+</div>
+
+{{>layout/footer}}
